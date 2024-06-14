@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void sortArrayByParity(int* nums, int numsSize, int* returnSize){
+    int result[numsSize];
+    int evenIndex = 0;
+    int oddIndex = 1;
+
+    for(int i = 0; i < numsSize; i++){
+        if(nums[i] % 2 == 0){
+            result[evenIndex] = nums[i];
+            evenIndex += 2;
+        } else {
+            result[oddIndex] = nums[i];
+            oddIndex += 2;
+        }
+    }
+
+    for(int i = 0; i < numsSize; i++){
+        nums[i] = result[i];
+    }
+
+    *returnSize = numsSize;
+}
+
+int main() {
+    int nums[] = {4, 2, 5, 7};
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
+    int returnSize;
+
+    sortArrayByParity(nums, numsSize, &returnSize);
+
+    printf("Sorted Array: ");
+    for(int i = 0; i < numsSize; i++){
+        printf("%d ", nums[i]);
+    }
+
+    return 0;
+}
