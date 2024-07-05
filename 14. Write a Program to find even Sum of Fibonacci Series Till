@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main() {
+    int n, first = 0, second = 1, next, sum = 0;
+    printf("Enter the value of N: ");
+    scanf("%d", &n);
+    printf("Even numbers in the Fibonacci series up to %d are: ", n);
+    while (first <= n) {
+        if (first % 2 == 0) {
+            printf("%d ", first);
+            sum += first;
+        }
+        next = first + second;
+        first = second;
+        second = next;
+    }
+    printf("\nSum of even numbers in the Fibonacci series up to %d is: %d", n, sum);
+    return 0;
+}
